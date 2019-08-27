@@ -6,15 +6,16 @@
 #    By: ydonse <ydonse@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 16:39:25 by ydonse            #+#    #+#              #
-#    Updated: 2019/08/25 17:17:28 by ydonse           ###   ########.fr        #
+#    Updated: 2019/08/27 14:37:07 by ydonse           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ydonse.filler
+NAME = players/ydonse.filler
 
 SRC_PATH = src
 
-SRC_NAME = main.c
+SRC_NAME = 	main.c \
+			parsing.c
 
 CPPFLAGS = -I libft/includes/ -MMD
 

@@ -6,7 +6,7 @@
 /*   By: ydonse <ydonse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 13:29:44 by ydonse            #+#    #+#             */
-/*   Updated: 2019/08/25 16:39:39 by ydonse           ###   ########.fr       */
+/*   Updated: 2019/08/27 14:44:20 by ydonse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 # include "libft.h"
 
 
+
+typedef enum		e_player
+{
+	p1,
+	p2
+}					t_player;
 
 typedef struct		s_pos
 {
@@ -26,13 +32,18 @@ typedef struct		s_map
 {
 	int				x;
 	int				y;
-	char			**tab;
+	char			*tab;
 }					t_map;
 
-typedef struct  s_main
+typedef struct  	s_main
 {
-	int	board_x;
-	int	board_y;
+	t_pos			board;
+	t_player		player;
 
-}				t_main;
+
+}					t_main;
+
+int					get_player_nb(t_main *s);
+char				*fill_tab();
+
 #endif
