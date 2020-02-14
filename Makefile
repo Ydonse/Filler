@@ -6,7 +6,7 @@
 #    By: ydonse <ydonse@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 16:39:25 by ydonse            #+#    #+#              #
-#    Updated: 2019/08/27 14:37:07 by ydonse           ###   ########.fr        #
+#    Updated: 2020/02/14 14:39:01 by ydonse           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,21 @@ NAME = players/ydonse.filler
 
 SRC_PATH = src
 
-SRC_NAME = 	main.c \
-			parsing.c
+SRC_NAME = 	main.c 		\
+			parsing.c 	\
+			visu.c
+
+ID = $(shell id -un)
 
 CPPFLAGS = -I libft/includes/ -MMD
+
+SDLFLAGS =  $(SDLINCL) -L$(HOME)/.brew/Cellar/sdl2/2.0.10/lib -lSDL2
+
+IMGINCL = -I /Users/$(ID)/.brew/Cellar/sdl2_image/2.0.5/include/SDL2
+
+IMGFLAGS = $(IMGINCL) -L/Users/$(ID)/.brew/Cellar/sdl2_image/2.0.5/lib -lSDL2_image
+
+SDLINCL = -I $(HOME)/.brew/Cellar/sdl2/2.0.10/include/SDL2
 
 LDFLAGS = -L libft/ -lft
 
@@ -44,11 +55,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C libft/
-	$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) $^ -o $@
+	$(CC) $(CFLAGS) $(MIXINCL) $(LDFLAGS) $(SDLFLAGS) $(IMGFLAGS) $(LDLIBS) $^ -o $@
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	$(CC) $(CFLAGS) $(CPPFLAGS) -I $(HEADER_PATH) -o $@ -c $<
+	$(CC) $(CFLAGS) $(CPPFLAGS) -I $(HEADER_PATH) $(SDLINCL) $(IMGINCL) -o $@ -c $<
 
 clean:
 	make clean -C libft/
