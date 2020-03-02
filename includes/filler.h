@@ -6,7 +6,7 @@
 /*   By: ydonse <ydonse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 13:29:44 by ydonse            #+#    #+#             */
-/*   Updated: 2020/02/14 16:46:46 by ydonse           ###   ########.fr       */
+/*   Updated: 2020/03/02 16:57:54 by ydonse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "libft.h"
 # include <SDL.h>
 # include <SDL_image.h>
+# include <fcntl.h>
 
 # define HEIGHT 1000
 # define WIDTH 1500
@@ -68,7 +69,7 @@ typedef struct  			s_main
 	t_sdl					*sdl;
 }							t_main;
 
-int							get_player_nb(t_main *s);
+// int							get_player_nb(t_main *s);
 char						*fill_tab();
 void						display_visu(t_main *s);
 

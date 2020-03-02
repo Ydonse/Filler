@@ -6,7 +6,7 @@
 /*   By: ydonse <ydonse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 13:26:55 by ydonse            #+#    #+#             */
-/*   Updated: 2020/02/14 17:16:46 by ydonse           ###   ########.fr       */
+/*   Updated: 2020/03/02 16:41:49 by ydonse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@
 
 int	main(int argc, char **argv)
 {
-	// char 	*tab;
-	t_main 	*s;
+	char 		*tab;
+	t_main 		*s;
+	static int	player = 0;
 
 	// ft_bzero((void **)&s, sizeof(t_main));
 	if (!(s = (t_main*)malloc(sizeof(t_main))))
 		return (0);
 	ft_bzero((void*)s, sizeof(t_main));
-	display_visu(s);
+	// display_visu(s);
 	// s.player = get_player_nb(&s);
-	// tab = fill_tab();
+
+	tab = fill_tab(&player);
 	// //s.board = get_board_size(&s);
 	// // while (1)
 	// // {
