@@ -6,7 +6,7 @@
 /*   By: ydonse <ydonse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 17:58:15 by ydonse            #+#    #+#             */
-/*   Updated: 2019/06/24 15:46:18 by jgehin           ###   ########.fr       */
+/*   Updated: 2020/03/06 14:33:48 by ydonse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# define BUFF_SIZE 10
 
 typedef struct		s_list
 {
@@ -23,6 +24,26 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_vec3
+{
+	int				x;
+	int				y;
+	int				z;
+}					t_vec3;
+
+typedef struct		s_vec2
+{
+	int				x;
+	int				y;
+}					t_vec2;
+
+typedef struct		s_gnlist
+{
+	char			*save;
+	int				fd;
+	struct s_gnlist	*next;
+}					t_gnlist;
 
 typedef enum		e_bool
 {
@@ -101,7 +122,7 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_sqrt_base(int nb);
-void				ft_free_tab_str(char **tab);
+void				ft_free_tab_str(char ***tab);
 char				*ft_lutoa(unsigned long n);
 int					ft_longlen(long nb);
 long				ft_abs(long nb);

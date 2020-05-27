@@ -6,7 +6,7 @@
 #    By: ydonse <ydonse@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 16:39:25 by ydonse            #+#    #+#              #
-#    Updated: 2020/02/27 10:49:20 by ydonse           ###   ########.fr        #
+#    Updated: 2020/03/06 13:23:14 by ydonse           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ LDFLAGS = -L libft/ -lft
 
 CC = gcc
 
-CFLAGS = -Werror -Wall -g3 #-Wextra
+CFLAGS = -Werror -Wall -g3 #-fsanitize=address#-Wextra
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

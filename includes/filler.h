@@ -6,7 +6,7 @@
 /*   By: ydonse <ydonse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 13:29:44 by ydonse            #+#    #+#             */
-/*   Updated: 2020/03/02 16:57:54 by ydonse           ###   ########.fr       */
+/*   Updated: 2020/03/06 15:16:34 by ydonse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,14 @@ typedef struct				s_map
 {
 	int						x;
 	int						y;
-	char					*tab;
+	char					**tab;
 }							t_map;
+
+typedef struct				s_piece
+{
+	int						*index;
+	t_pos					*coord;
+}							t_piece;
 
 typedef struct 				s_sprite
 {
@@ -64,13 +70,28 @@ typedef struct				s_sdl
 
 typedef struct  			s_main
 {
-	t_pos					board;
 	t_player				player;
 	t_sdl					*sdl;
+	int						size_x;
+	int						size_y;
+	char					**map;
+	char					**piece;
+	t_piece					new_piece;
+	int						x_piece;
+	int						y_piece;
+	t_pos					def;
+	int						first;
+	int						fd;
+	char					*line;
+	int						i;
 }							t_main;
 
 // int							get_player_nb(t_main *s);
-char						*fill_tab();
+// int							fill_tab(t_main *s, int *player);
+int							fill_map(t_main *s, int *player, FILE *fichier, int i);
+void						free_map(t_main *s);
 void						display_visu(t_main *s);
+void						set_piece(t_main *s);
+void						display_tab(t_main *s, FILE *fichier, char **tab);
 
 #endif
